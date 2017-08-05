@@ -3,8 +3,8 @@ El objetivo del trabajo es crear un nuevo front-end para la web The Movie DB uti
 
 ## Integrantes:
 * Bianchi, Martín - 
-* Gentinili, Juan Manuel -
-* Malvestiti, Andrés - 
+* Gentinili, Juan Manuel - 41885
+* Malvestiti, Andrés - 41946
 * Poma, Julán - 41843
 
 Año 2017.
