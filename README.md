@@ -2,7 +2,7 @@
 El objetivo del trabajo es crear un nuevo front-end para la web The Movie DB utilizando Angular 4.
 
 ## Integrantes:
-* Bianchi, Martín - 
+* Bianchi, Martín - 41941
 * Gentili, Juan Manuel - 41885
 * Malvestiti, Andrés - 41946
 * Poma, Julán - 41843
