@@ -8,6 +8,7 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
 import { LoginComponent } from './header/login/login.component';
 import { BarraBusquedaComponent } from './barra-busqueda/barra-busqueda.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PeliculaComponent } from './pelicula/pelicula.component';
     BarraBusquedaComponent,
     PeliculaComponent,
     CarrouselComponent,
-    FooterComponent
+    FooterComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule
