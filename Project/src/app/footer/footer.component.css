@@ -3,7 +3,8 @@ footer { background-color:#0c1a1e; min-height:300px; font-family: 'Open Sans', s
   bottom: 0;
   width: 100%;}
 .footerleft { margin-top:50px; padding:0 36px; }
-.logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700;}
+.logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700; width:200px; height:200px;}
+.image{ width:200px; height:200px;}
 
 .footerleft p { color:#fff; font-size:12px !important; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
 .footerleft p i { width:20px; color:#999;}
