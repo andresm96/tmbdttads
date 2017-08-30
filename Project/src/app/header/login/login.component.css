@@ -1,0 +1,8 @@
+.modal-header {
+    background-color: #222;
+    border-color: black;
+    padding: 25px 40px;
+    text-align: center;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+}
