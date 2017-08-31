@@ -11,3 +11,18 @@
     margin-top: 5px;
     color: white;
 }
+
+ul.dropdown-lr {
+    width: 250px;
+    padding-bottom: 17px;
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+	.dropdown-lr h3 {
+		color: #eee;
+	}
+	.dropdown-lr label {
+		color: #eee;
+	}
+}
