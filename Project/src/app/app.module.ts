@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -11,6 +14,7 @@ import { ItemPeliculaComponent } from './peliculas-destacadas/item-pelicula/item
 import { BarraBusquedaComponent } from './barra-busqueda/barra-busqueda.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { ReviewComponent } from './review/review.component';
+
 
 
 @NgModule({
@@ -27,9 +31,11 @@ import { ReviewComponent } from './review/review.component';
     ReviewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
