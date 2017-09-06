@@ -1,11 +1,14 @@
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let movie of data.results">
-            <!--<app-item-pelicula></app-item-pelicula>-->
-            <h1>{{movie.title}}</h1>
-            <p>{{movie.overview}}</p>
+        <ng-container *ngFor="let movie of data.results | slice:0:4; let i=index">
+            <app-item-pelicula [movie]="movie"></app-item-pelicula>
         </ng-container>
     </div>
+    <div class="row">
+            <ng-container *ngFor="let movie of data.results | slice:4:8; let i=index">
+                <app-item-pelicula [movie]="movie"></app-item-pelicula>
+            </ng-container>
+        </div>
 </div>
 
 

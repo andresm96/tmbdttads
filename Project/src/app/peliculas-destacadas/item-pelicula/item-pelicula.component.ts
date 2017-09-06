@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-item-pelicula',
@@ -11,12 +10,10 @@ export class ItemPeliculaComponent implements OnInit {
   image: string;
   title: string;
   overview: string;
+  @Input() movie;
 
-  constructor(image: string, title: string, overview: string) {
-     this.image = image;
-     this.title = title;
-     this.overview = overview;
-  }
+  constructor() {
+     }
 
   ngOnInit() {
   }
