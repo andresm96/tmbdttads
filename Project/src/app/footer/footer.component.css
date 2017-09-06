@@ -13,8 +13,9 @@
   text-align: center;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: auto;
+  padding-top:25px;
+  padding-bottom: 25px;
+  margin-top: 25px;
   background-color:#000000;
 }
 
