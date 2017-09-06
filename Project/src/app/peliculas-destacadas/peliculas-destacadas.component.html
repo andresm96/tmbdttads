@@ -1,16 +1,14 @@
 <div class="container">
     <div class="row">
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>     
+        <ng-container *ngFor="let movie of data.results | slice:0:4; let i=index">
+            <app-item-pelicula [movie]="movie"></app-item-pelicula>
+        </ng-container>
     </div>
-    <!--<div class="row">
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>
-        <app-item-pelicula></app-item-pelicula>
-    </div>-->
+    <div class="row">
+            <ng-container *ngFor="let movie of data.results | slice:4:8; let i=index">
+                <app-item-pelicula [movie]="movie"></app-item-pelicula>
+            </ng-container>
+        </div>
 </div>
 
 

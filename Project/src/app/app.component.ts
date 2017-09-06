@@ -12,7 +12,6 @@ export class AppComponent {
   data: any = {};
 
   constructor(private http: Http) {
-    console.log("Está funcionando monooooo");
     this.getMovies();
     this.getData();
   }
