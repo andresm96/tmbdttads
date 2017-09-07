@@ -1,15 +1,7 @@
-.modal-header {
-    background-color: #222;
-    border-color: black;
-    padding: 25px 40px;
-    text-align: center;
-    color: white;
-    border-radius: 3px 3px 0px 0px;
-}
-.btn-close{
-    margin-right: 10px;
-    margin-top: 5px;
-    color: white;
+.navbar-nav li a {
+    line-height: 70px;
+    height: 70px;
+    padding-top: 0px;
 }
 
 ul.dropdown-lr {
@@ -25,4 +17,9 @@ ul.dropdown-lr {
 	.dropdown-lr label {
 		color: #eee;
 	}
+    .navbar-nav li a {
+        line-height: 30px;
+        height: 30px;
+        padding-top: 0px;
+}
 }
