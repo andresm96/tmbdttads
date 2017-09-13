@@ -3,9 +3,9 @@
         <div class="col-md-8 col-md-offset-2">
             <form >
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Buscar peliculas, series o documentales...">
+                    <input type="search" class="form-control" placeholder="Buscar peliculas, series o documentales..." #query>
                     <span class="input-group-btn">
-                        <input class="btn btn-primary" type="submit" name="btnBuscar" value="Buscar">
+                        <input class="btn btn-primary" type="submit" name="btnBuscar" value="Buscar" (click)="services.getMoviesByQuery(query.value)">
                     </span>
                 </div>
             </form>
