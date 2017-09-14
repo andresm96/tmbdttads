@@ -5,11 +5,24 @@
                 <div class="input-group">
                     <input type="search" class="form-control" placeholder="Buscar peliculas, series o documentales..." #query>
                     <span class="input-group-btn">
-                        <input class="btn btn-primary" type="submit" name="btnBuscar" value="Buscar" (click)="services.getMoviesByQuery(query.value)">
+                        <input class="btn btn-primary" type="submit" name="btnBuscar" value="Buscar" (click)="getMoviesByQuery(query.value)">
                     </span>
                 </div>
             </form>
         </div>
     </div>
     <hr>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let movie of services.data.results | slice:0:4; let i=index">
+            <app-item-pelicula [movie]="movie"></app-item-pelicula>
+        </ng-container>
+    </div>
+    <div class="row">
+        <ng-container *ngFor="let movie of services.data.results | slice:4:8; let i=index">
+            <app-item-pelicula [movie]="movie"></app-item-pelicula>
+        </ng-container>
+    </div>
 </div>

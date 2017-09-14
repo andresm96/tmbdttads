@@ -17,6 +17,8 @@ export class BarraBusquedaComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  getMoviesByQuery(query) {
+    this.services.getMoviesByQuery(query);
+  }
 
 }

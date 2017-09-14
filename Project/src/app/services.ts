@@ -15,8 +15,6 @@ private apiKey = "?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5";
 data: any = {};
 private apiURL: string;
 
-
-
   constructor(private http: Http) {
 
   }
@@ -36,7 +34,7 @@ private apiURL: string;
   }
   
   getMoviesByQuery(query: string) {
-    this.apiURL = this.firstPartUrl + "search/movie/" + this.apiKey + "&query=" + query;
+    this.apiURL = this.firstPartUrl + "search/movie" + this.apiKey + "&query=" + query;
     this.getData().subscribe(data => {
       console.log(data);
       this.data = data
