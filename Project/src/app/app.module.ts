@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { RouterModule, Routes } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,6 +16,20 @@ import { ItemPeliculaComponent } from './peliculas-destacadas/item-pelicula/item
 import { BarraBusquedaComponent } from './barra-busqueda/barra-busqueda.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { ReviewComponent } from './review/review.component';
+
+
+
+const appRoutes: Routes = [
+  { path: 'resultado-busqueda', component: BarraBusquedaComponent },
+  { path: 'destacado', component: PeliculasDestacadasComponent },
+  { path: '',
+  redirectTo: '/destacado',
+  pathMatch: 'full'
+  }
+
+];
+
+
 
 
 
@@ -33,7 +49,11 @@ import { ReviewComponent } from './review/review.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true} //Esto es solo para debugear despues sacarlo.
+    )
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

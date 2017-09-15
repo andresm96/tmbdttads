@@ -36,7 +36,7 @@ private apiURL: string;
   }
   
   getMoviesByQuery(query: string) {
-    this.apiURL = this.firstPartUrl + "search/movie/" + this.apiKey + "&query=" + query;
+    this.apiURL = this.firstPartUrl + "search/movie" + this.apiKey + "&query=" + query;
     this.getData().subscribe(data => {
       console.log(data);
       this.data = data
