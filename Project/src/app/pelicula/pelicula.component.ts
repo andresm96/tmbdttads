@@ -14,7 +14,7 @@ export class PeliculaComponent implements OnInit {
   constructor(private services: Services) { }
 
   ngOnInit() {
-    this.services.getPopular();
+
       
   }
   

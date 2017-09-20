@@ -6,7 +6,7 @@
             <p><b>Puntaje: {{movie.vote_average}} / 10</b></p>
             <hr>            
             <p>{{movie.overview}}</p><br>
-            <button class="btn btn-default info center-block">Más información</button>
+            <a (click)="goMovie(movie.id)" class="btn btn-default info center-block">Más información</a>
         </div>
     </div>
 </div>
