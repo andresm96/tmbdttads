@@ -22,6 +22,7 @@ import { ReviewComponent } from './review/review.component';
 const appRoutes: Routes = [
   { path: 'resultado-busqueda/:query', component: BarraBusquedaComponent },
   { path: 'destacado', component: PeliculasDestacadasComponent },
+  { path: 'pelicula/:id', component: PeliculaComponent },
   { path: '',
   redirectTo: '/destacado',
   pathMatch: 'full'
