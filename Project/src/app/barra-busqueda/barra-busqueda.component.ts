@@ -11,12 +11,16 @@ import 'rxjs/add/operator/switchMap';
 })
 export class BarraBusquedaComponent implements OnInit {
   @Input() movie;
+  private QueryResults;
 
   constructor(private services: Services, private route: ActivatedRoute,
     private router: Router,) { }
 
   ngOnInit() {
-    this.route.params.subscribe(query => this.services.getMoviesByQuery(query['query']));
+    this.route.params.subscribe(
+      query => this.services.getMoviesByQuery(query['query']).subscribe(
+        data => this.QueryResults = data
+      ));
       
   }
 

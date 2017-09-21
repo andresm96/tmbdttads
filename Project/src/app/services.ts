@@ -13,7 +13,7 @@ private apiKey = "?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5";
 
 //private apiURL = "https://api.themoviedb.org/3/movie/popular?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5&page=1";
 data: any = {};
-private apiURL: string;
+
 
 
 
@@ -21,25 +21,29 @@ private apiURL: string;
 
   }
 
-  getData() {
+  getData(apiURL) {
  
-    return this.http.get(this.apiURL)
+    return this.http.get(apiURL)
       .map((res: Response) => res.json());
   }
 
   getPopular() {
-    this.apiURL = this.firstPartUrl + "movie/popular" + this.apiKey + "&page=1";
-    this.getData().subscribe(data => {
-      console.log(data);
-      this.data = data
-    })
+    let apiURL = this.firstPartUrl + "movie/popular" + this.apiKey + "&page=1";
+    return this.getData(apiURL); 
   }
-  
+
   getMoviesByQuery(query: string) {
-    this.apiURL = this.firstPartUrl + "search/movie" + this.apiKey + "&query=" + query;
-    this.getData().subscribe(data => {
-      console.log(data);
-      this.data = data
-    })
+    let apiURL = this.firstPartUrl + "search/movie" + this.apiKey + "&query=" + query;
+    return this.getData(apiURL);
+  }
+
+  getMovieByID(id: string){
+    let apiURL = this.firstPartUrl + "movie/" + id + this.apiKey;
+    return this.getData(apiURL);
+  }
+
+  getReviewsOfMovie(id: string){
+    let apiURL = this.firstPartUrl + "movie/" + id + "/reviews" + this.apiKey;
+    return this.getData(apiURL);
   }
 }
