@@ -1,19 +1,13 @@
 <app-barra-busqueda></app-barra-busqueda>
 <div class="container">
     <div class="col-md-3 col-md-offset-2 poster">
-        <img src="https://image.tmdb.org/t/p/w640/tWqifoYuwLETmmasnGHO7xBjEtt.jpg" alt="Poster de la pelicula" width="250">
+        <img src="https://image.tmdb.org/t/p/w640{{movie.poster_path}}" alt="{{movie.title}}" width="250">
     </div>
     <div class="col-md-5">
-        <h1>La bella y la bestia - 2009</h1>
-        <p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 6.8 / 10 - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 2h 10m - <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Ingles</p>
+        <h1>{{movie.title}}</h1>
+        <p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{movie.vote_average}} / 10 - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{movie.runtime}} minutos - <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>{{movie.spoken_languajes}}</p>
         <h3>Sinopsis</h3>
-        <p>En Londres, a finales del siglo XIX, una época en la que los magos eran los ídolos más aclamados, dos jóvenes ilusionistas
-        se proponen alcanzar la fama. El sofisticado Robert Angier (Hugh Jackman) es un consumado artista, mientras que el
-        tosco y purista Alfred Borden (Christian Bale) es un genio creativo, pero carece de la habilidad necesaria para ejecutar
-        en público sus mágicas ideas. Al principio son compañeros y amigos que se admiran mutuamente. Sin embargo, cuando
-        el mejor truco ideado por ambos fracasa, se convierten en enemigos irreconciliables: cada uno de ellos intentará
-        por todos los medios superar al otro y acabar con él. Truco a truco, espectáculo a espectáculo, se va fraguando una
-        feroz competición que no tiene límites.</p>
+        <p>{{movie.overview}}</p>
     </div> 
     <div class="col-md-12">
         <br>
