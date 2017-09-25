@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Services } from '../../app/services';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-pelicula',
@@ -9,13 +11,18 @@ import { Services } from '../../app/services';
 })
 
 export class PeliculaComponent implements OnInit {
-
+  private movie: any;
+  private reviews: any;
  
-  constructor(private services: Services) { }
+  constructor(private services: Services, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(id =>
+       this.services.getMovieByID(id['id']).subscribe(data => this.movie = data) );
 
-      
+    this.route.params.subscribe(id => 
+       this.services.getReviewsOfMovie(id['id']).subscribe(data =>this.reviews = data ));
   }
   
 }

@@ -17,12 +17,12 @@
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let movie of services.data.results | slice:0:4; let i=index">
+        <ng-container *ngFor="let movie of QueryResults.results | slice:0:4; let i=index">
             <app-item-pelicula [movie]="movie"></app-item-pelicula>
         </ng-container>
     </div>
     <div class="row">
-        <ng-container *ngFor="let movie of services.data.results | slice:4:8; let i=index">
+        <ng-container *ngFor="let movie of QueryResults.results | slice:4:8; let i=index">
             <app-item-pelicula [movie]="movie"></app-item-pelicula>
         </ng-container>
     </div>
