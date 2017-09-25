@@ -21,6 +21,7 @@ import { ReviewComponent } from './review/review.component';
 
 const appRoutes: Routes = [
   { path: 'resultado-busqueda/:query', component: BarraBusquedaComponent },
+  { path: 'pelicula/:id', component: PeliculaComponent },
   { path: 'destacado', component: PeliculasDestacadasComponent },
   { path: 'pelicula/:id', component: PeliculaComponent },
   { path: '',
@@ -52,8 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(
-      appRoutes
-        )
+      appRoutes=)
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
