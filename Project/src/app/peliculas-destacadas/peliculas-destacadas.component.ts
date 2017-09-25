@@ -11,6 +11,7 @@ import { Services } from '../../app/services';
   
 })
 export class PeliculasDestacadasComponent implements OnInit {
+  private PopularMovies;
 
   constructor(private services: Services) {
 
@@ -19,7 +20,7 @@ export class PeliculasDestacadasComponent implements OnInit {
 
 
   ngOnInit() {
-    this.services.getPopular();
+    this.services.getPopular().subscribe(data => this.PopularMovies = data);
       
   }
 
