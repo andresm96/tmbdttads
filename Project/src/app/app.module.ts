@@ -25,8 +25,8 @@ const appRoutes: Routes = [
   { path: 'destacado', component: PeliculasDestacadasComponent },
   { path: 'pelicula/:id', component: PeliculaComponent },
   { path: '',
-  redirectTo: '/destacado',
-  pathMatch: 'full'
+    redirectTo: '/destacado',
+    pathMatch: 'full'
   }
 
 ];
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(
-      appRoutes=)
+      appRoutes)
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]
