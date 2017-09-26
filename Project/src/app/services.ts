@@ -13,6 +13,7 @@ private apiKey = "?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5";
 
 //private apiURL = "https://api.themoviedb.org/3/movie/popular?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5&page=1";
 data: any = {};
+guest_session: any;
 
 
 
@@ -22,7 +23,7 @@ data: any = {};
   }
 
   getData(apiURL) {
- 
+
     return this.http.get(apiURL)
       .map((res: Response) => res.json());
   }
@@ -45,5 +46,40 @@ data: any = {};
   getReviewsOfMovie(id: string){
     let apiURL = this.firstPartUrl + "movie/" + id + "/reviews" + this.apiKey;
     return this.getData(apiURL);
+  }
+
+  getGuestSession(){
+    let apiURL = this.firstPartUrl + "authentication/guest_session/new" + this.apiKey;
+    return this.getData(apiURL);
+  }
+
+  postRating(score: any, guest_session_id: string, id: string) {
+    let apiURL = this.firstPartUrl + "movie/" + id + "/rating" + "?guest_session_id=" + guest_session_id + this.apiKey;
+    console.log(apiURL);
+
+    var data = JSON.stringify({
+      "value": score
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open("POST", apiURL);
+    xhr.setRequestHeader("content-type", "application/json;charset=utf-8");
+    xhr.send(data);    
+  }
+
+  
+  rateMovie(id: string, score: any) {
+    let apiURL;
+    this.getGuestSession().subscribe(session =>
+      this.postRating(score, session.guest_session_id, id)
+    );
   }
 }

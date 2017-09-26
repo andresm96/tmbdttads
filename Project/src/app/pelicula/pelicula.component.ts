@@ -24,5 +24,8 @@ export class PeliculaComponent implements OnInit {
     this.route.params.subscribe(id => 
        this.services.getReviewsOfMovie(id['id']).subscribe(data =>this.reviews = data ));
   }
-  
+
+  rateMovie(score) {
+    this.services.rateMovie(this.movie.id, score);
+  }
 }

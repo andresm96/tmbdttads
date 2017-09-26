@@ -6,12 +6,22 @@
     <div class="col-md-5">
         <h1>{{movie.title}}</h1>
         <p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{movie.vote_average}} / 10 - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{movie.runtime}} minutos - <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> {{movie.spoken_languages[0].name}}</p>
-        <h3>Sinopsis</h3>
+        <h3>Sinópsis</h3>
         <p>{{movie.overview}}</p>
-    </div> 
-    <div class="col-md-12">
-        <br>
-        <h2>Que opina la gente</h2>
+        <hr>
+        <h3>Puntuar esta película</h3>
+        <form>
+            <div class="col-md-3 form-group">
+                <input type="number" id="vote" class="form-control" #score>
+            </div>
+            <div class="col-md-3 form-group">
+                <button class="btn btn-primary" (click)="rateMovie(score.value)">Votar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <hr>
+        <h2>Qué opina la gente</h2>
     </div>
     <div class="col-md-8 col-md-offset-2 panel-group">
         <div class="alert alert-info text-center" *ngIf="reviews.total_results === 0">
