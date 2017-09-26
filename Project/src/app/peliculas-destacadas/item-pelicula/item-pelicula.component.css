@@ -10,9 +10,23 @@
 
 h3 {
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 130%;
 }
 
 img {
     border-style: solid;
     border-width: 3px;
+}
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+
+.thumbnail{
+
+    min-height: 684px;
 }
