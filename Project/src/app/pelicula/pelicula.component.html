@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-5">
         <h1>{{movie.title}}</h1>
-        <p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{movie.vote_average}} / 10 - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{movie.runtime}} minutos - <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>{{movie.spoken_languajes}}</p>
+        <p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{movie.vote_average}} / 10 - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{movie.runtime}} minutos - <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> {{movie.spoken_languages[0].name}}</p>
         <h3>Sinopsis</h3>
         <p>{{movie.overview}}</p>
     </div> 
@@ -14,26 +14,11 @@
         <h2>Que opina la gente</h2>
     </div>
     <div class="col-md-8 col-md-offset-2 panel-group">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Gabe Newell - Hace 26 dias</div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">Gabe Newell - Hace 26 dias</div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">Gabe Newell - Hace 26 dias</div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
+        <ng-container *ngFor="let review of reviews.results | slice:0:10">
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{review.author}}</div>
+                <div class="panel-body">{{review.content}}</div>
+            </div>
+        </ng-container>
     </div>
 </div>
