@@ -14,7 +14,9 @@
             <input type="number" min="1" max="10" class="form-control" #vote/>
             <button (click)="voteMovie(vote.value); vote.value='';" class="btn btn-success">¡Votar!</button>
             <br *ngIf="error===1"><br *ngIf="error===1">
-            <div *ngIf="error===1" class="alert alert-warning"><strong>Debe ingresar un numero entre 1 y 10</strong></div>
+            <div *ngIf="error===1" class="alert alert-warning"><strong>Debe ingresar un numero entre 1 y 10.</strong></div>
+            <br *ngIf="res.closed"><br *ngIf="res.closed">
+            <div *ngIf="res.closed" class="alert alert-success"><strong>¡Se ha registrado su voto con éxito!</strong></div>
         </div>
 
     </div>

@@ -15,6 +15,7 @@ export class PeliculaComponent implements OnInit {
   private movie: any;
   private reviews: any;
   private error: number;
+  private res: any;
  
   constructor(private services: Services, private route: ActivatedRoute,
     private router: Router) { }
@@ -32,7 +33,7 @@ export class PeliculaComponent implements OnInit {
     this.error=0;
 
     if (score <= 10 && score >= 1) {
-      this.services.submitVote(this.movie.id, score);
+      this.res = this.services.submitVote(this.movie.id, score);
     }
     else this.error = 1;
   }
