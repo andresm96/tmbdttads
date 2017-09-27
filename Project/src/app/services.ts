@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
@@ -8,17 +8,14 @@ import 'rxjs/add/operator/map';
 export class Services {
 private firstPartUrl = "https://api.themoviedb.org/3/";
 private apiKey = "?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5";
+private guest_session_id = "3a8ddd82f848ae1fe15eab0a8754937d";
 
 //esta apiurl ya no serviria pero por las dudas la dejo
 
 //private apiURL = "https://api.themoviedb.org/3/movie/popular?api_key=c6b85fa012fc0f0d2d5d548aa0080dd5&page=1";
 data: any = {};
-guest_session: any;
 
-
-
-
-  constructor(private http: Http) {
+constructor(private http: Http) {
 
   }
 
@@ -53,33 +50,26 @@ guest_session: any;
     return this.getData(apiURL);
   }
 
-  postRating(score: any, guest_session_id: string, id: string) {
-    let apiURL = this.firstPartUrl + "movie/" + id + "/rating" + "?guest_session_id=" + guest_session_id + this.apiKey;
-    console.log(apiURL);
-
-    var data = JSON.stringify({
-      "value": score
-    });
-
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+  postSendVote(guest_session: any, score:number, id:string) {
     
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        console.log(this.responseText);
-      }
-    });
+    // console.log("Guest Session: " + guest_session);
 
-    xhr.open("POST", apiURL);
-    xhr.setRequestHeader("content-type", "application/json;charset=utf-8");
-    xhr.send(data);    
+    let apiURL = this.firstPartUrl + "movie/" + id + "/rating" + this.apiKey + "&guest_session_id=" + guest_session;
+
+    // console.log("Api: " + apiURL);
+
+    const body = { value: score };
+    
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json;charset=utf-8');
+
+    this.http.post(apiURL, body, { headers: headers }).subscribe((res) => console.log(res.json()));
   }
 
-  
-  rateMovie(id: string, score: any) {
-    let apiURL;
-    this.getGuestSession().subscribe(session =>
-      this.postRating(score, session.guest_session_id, id)
+  submitVote(id: string, score: number) {
+
+    return this.getGuestSession().subscribe(
+      (session) => this.postSendVote(session.guest_session_id, score, id)
     );
   }
 }
