@@ -50,6 +50,11 @@ constructor(private http: Http) {
     return this.getData(apiURL);
   }
 
+  getRequestToken(){
+    let apiURL = this.firstPartUrl + "authentication/token/new" + this.apiKey;
+    return this.getData(apiURL);
+  }
+
   postSendVote(guest_session: any, score:number, id:string) {
     
     // console.log("Guest Session: " + guest_session);
@@ -70,6 +75,17 @@ constructor(private http: Http) {
 
     return this.getGuestSession().subscribe(
       (session) => this.postSendVote(session.guest_session_id, score, id)
+    );
+  }
+
+  validate(request_token: any,user: String, password: String){
+    let apiURL = this.firstPartUrl + "authentication/token/validate_with_login" + this.apiKey + "&username=" + user + "&password=" + password + "&request_token=" + request_token + "?redirect_to=http://localhost:4200/destacado";
+  }
+
+  authentication(user: String, password: String){
+    
+    return this.getRequestToken().subscribe(
+      (token) => this.validate(token.request_token, user, password)
     );
   }
 }
