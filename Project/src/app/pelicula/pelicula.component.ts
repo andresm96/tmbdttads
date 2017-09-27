@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Services } from '../../app/services';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/util/isNumeric';
 
 @Component({
   selector: 'app-pelicula',
@@ -13,6 +14,7 @@ import 'rxjs/add/operator/switchMap';
 export class PeliculaComponent implements OnInit {
   private movie: any;
   private reviews: any;
+  private error: number;
  
   constructor(private services: Services, private route: ActivatedRoute,
     private router: Router) { }
@@ -24,5 +26,14 @@ export class PeliculaComponent implements OnInit {
     this.route.params.subscribe(id => 
        this.services.getReviewsOfMovie(id['id']).subscribe(data =>this.reviews = data ));
   }
-  
+
+  voteMovie(score: number) {
+
+    this.error=0;
+
+    if (score <= 10 && score >= 1) {
+      this.services.submitVote(this.movie.id, score);
+    }
+    else this.error = 1;
+  }
 }
