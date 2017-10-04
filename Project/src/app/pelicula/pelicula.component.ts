@@ -34,7 +34,12 @@ export class PeliculaComponent implements OnInit {
 
     if (score <= 10 && score >= 1) {
       this.res = this.services.submitVote(this.movie.id, score);
+      console.log(this.res);
+      this.error = 0;
     }
-    else this.error = 1;
+    else {
+      this.error = 1;
+      this.res = null;
+    }
   }
 }

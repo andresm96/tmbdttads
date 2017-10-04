@@ -68,7 +68,7 @@ constructor(private http: Http) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json;charset=utf-8');
 
-    return this.http.post(apiURL, body, { headers: headers }).subscribe((res) => console.log(res.json()));
+    return this.http.post(apiURL, body, { headers: headers }).subscribe((res) => res.json());
   }
 
   submitVote(id: string, score: number) {
